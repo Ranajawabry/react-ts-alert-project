@@ -1,0 +1,65 @@
+
+// error
+$ErrorBorderColor:rgba(255,25,0,0.322);
+$ErrorBgColor:rgb(129 29 29 / 15%);
+$errColor:#ef8d8dfa;
+
+// success
+$SuccessBorderColor:rgba(246,238,9,0.127);
+$SuccessbBgColor:rgb(28 53 17 / 85%);
+$successColor:rgb(12 255 12 / 59%);
+ 
+// warning
+$WarningBorderColor:rgba(255,213,0,0.793);
+$WarningBgColor:#392c06;
+$WarningColor:rgb(255, 186, 0);
+
+// info
+$InfoBorderColor:rgba(0,188,212,0.243);
+$InfoBgColor:rgb(12 58 71 / 24%);
+$infoColor:rgb(0,123,158);
+
+@mixin alerType($name,$borderColor,$bgColor,$color) {
+   
+    .#{$name} {
+        border: 2px $borderColor dotted;
+        padding: 1rem;
+        
+        border-radius: 15px;
+        color: $color;
+        background-color: $bgColor;
+        margin-block: 1rem;
+      
+        .alert-header {
+          display: flex;
+          justify-content: space-between;
+          
+          align-items: center;
+        
+           .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+          }
+          .close{
+            cursor:pointer;
+          }
+          
+        }
+        
+      }
+
+
+}
+
+@include alerType('alert-danger',$ErrorBorderColor,$ErrorBgColor,$errColor);
+
+@include alerType('alert-success',$SuccessBorderColor,$SuccessbBgColor,$successColor);
+
+@include alerType('alert-warning',$WarningBorderColor,$WarningBgColor,$WarningColor);
+
+@include alerType('alert-info', $InfoBorderColor, $InfoBgColor, $infoColor);
+
+
+
